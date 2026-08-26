@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HetisRoan - Over mij</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png">
+</head>
+
+<body>
+
+    <!-- Decorative particles -->
+    <div class="firefly" style="top:8%; left:10%; animation-delay:0s;"></div>
+    <div class="firefly" style="top:20%; left:78%; animation-delay:1.2s;"></div>
+    <div class="firefly" style="top:58%; left:52%; animation-delay:2.2s;"></div>
+    <div class="firefly" style="top:82%; left:28%; animation-delay:3.3s;"></div>
+
+    <div class="wrap">
+
+        <!-- Header -->
+        <header>
+            <div class="header-inner">
+                <div class="brand">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/logo.png" alt="HetisRoan logo"></a>
+                    </div>
+                    <div>
+                        <div class="site-title">HetisRoan</div>
+                        <div style="font-size:.85rem;color:#dbeafe">Minecraft & Roblox • YouTube & Twitch</div>
+                    </div>
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="videos.html">Video's</a>
+                    <a href="smp.html">SMP</a>
+                    <a href="about.html" style="color:var(--accent);">Over mij</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero / Pagina Titel -->
+        <section class="hero fade-in" id="hero" style="margin-top: 20px;">
+            <div class="content">
+                <h1>Over Mij</h1>
+                <p>Leuk dat je meer wilt weten over wie er achter HetisRoan zit!</p>
+            </div>
+        </section>
+
+        <!-- Inhoud Over Mij -->
+        <section class="card fade-in" style="animation-delay:.4s">
+            <h2>Wie is Roan?</h2>
+            <p style="color:var(--muted); line-height: 1.6;">
+                Hoi! Ik ben Roan, de creator achter het YouTube-kanaal en de Twitch-streams. Al van jongs af aan ben ik
+                gek op gamen, met een grote passie voor Minecraft en Roblox. Wat begon als het opnemen van simpele
+                game-video's is inmiddels uitgegroeid tot een toffe community waarin we samen avonturen beleven, toffe
+                dingen bouwen en griezelen in games zoals Poppy Playtime!
+            </p>
+            <h3 style="margin-top: 20px;">Waar kan je me vinden?</h3>
+            <p style="color:var(--muted);">Je kunt mijn content op de volgende platformen volgen:</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center; margin-top:15px;">
+                <a class="btn" href="https://youtube.com/@HetIsRoann" target="_blank"
+                    style="background-color: #FF0000;">YouTube Kanaal</a>
+                <a class="btn" href="https://twitch.tv/HetIsRoan1" target="_blank"
+                    style="background-color: #9146FF;">Twitch Stream</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-small">© <span id="year"></span> HetisRoan Studio's — Made with ♥ for the community</div>
+        </footer>
+
+    </div>
+
+    <!-- JS -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Hero parallax
+        (function () {
+            const hero = document.getElementById('hero');
+            window.addEventListener('mousemove', e => {
+                const w = window.innerWidth, h = window.innerHeight;
+                const x = (e.clientX - w / 2) / w;
+                const y = (e.clientY - h / 2) / h;
+                hero.style.transform = `translate3d(${x * 6}px, ${y * 6}px, 0)`;
+            });
+            window.addEventListener('mouseout', () => { hero.style.transform = 'none'; });
+        })();
+
+        // Scroll reveal
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.15 });
+        faders.forEach(f => observer.observe(f));
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
